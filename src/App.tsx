@@ -15,6 +15,11 @@ function App() {
 
     const filteredCharacters = characters.filter(character => character.name.toLowerCase().includes(searchText.toLowerCase()))
 
+    function addCharacter(newChar:Character){
+        setCharacters([...characters,
+            newChar])
+    }
+
     return (
         <>
             <header>
@@ -26,7 +31,7 @@ function App() {
                 </nav>
             </header>
             <Routes>
-                <Route path={"/"} element={<h2><NewCharacter/></h2>}/>
+                <Route path={"/"} element={<NewCharacter addCharacter={addCharacter}/>}/>
                 <Route path={"/Characters"} element={<CharacterGallery characters={filteredCharacters}/>}/>
                 <Route path={"/Characters/:id"} element={<CharacterDetailCard/>}/>
             </Routes>

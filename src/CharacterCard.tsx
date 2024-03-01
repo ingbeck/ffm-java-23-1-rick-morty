@@ -19,9 +19,9 @@ export default function CharacterCard(props: CharacterCardProps){
         <div className="characterCard" onClick={navigateToChar}>
             <CharacterCardImage character={props.character}/>
             <div className="characterDetail">
-                <p>
-                    <h3>{props.character.name}</h3>
-                </p>
+                <h3>
+                    {props.character.name}
+                </h3>
                 <p>
                     Species: {props.character.species}
                 </p>

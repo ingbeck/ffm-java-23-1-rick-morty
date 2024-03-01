@@ -2,20 +2,20 @@ import {ChangeEvent, FormEvent, useState} from "react";
 import {Character} from "../characters.ts";
 
 type formInput = {
-    id:number | null,
+    id:string,
     name:string,
     status:string,
     species:string
 }
 
 type NewCharacterProps = {
-    setCharacter:(newChar:Character) => void
+    addCharacter:(newChar:Character) => void
 }
 
-export default function NewCharacter(props: Readonly<NewCharacterProps>) {
+export default function NewCharacter(props: NewCharacterProps) {
 
     const[formData, setFormData] = useState<formInput>({
-        id:null,
+        id:"",
         name:"",
         status:"",
         species:""
@@ -27,8 +27,9 @@ export default function NewCharacter(props: Readonly<NewCharacterProps>) {
 
         setFormData({
             ...formData,
-            id: Number(value)
+            id: value
         })
+        console.log(value)
 
     }
 
@@ -61,13 +62,28 @@ export default function NewCharacter(props: Readonly<NewCharacterProps>) {
 
     }
 
-    function handleOnSubmit(event: FormEvent<HTMLFormElement> ){
-        
+    function handleOnClickSubmit(e){
+        e.preventDefault()
+        props.addCharacter({
+            id:Number(formData.id),
+            name:formData.name,
+            status:formData.status,
+            species:formData.species,
+            type:"",
+            image:""
+        })
+        setFormData({
+            id:"",
+            name:"",
+            status:"",
+            species:""
+        })
     }
+
 
         return (
         <>
-            <form onSubmit={handleOnSubmit}>
+            <form onSubmit={handleOnClickSubmit}>
                 <div>
                     <label htmlFor={"id"}>Id:</label>
                     <input type={"number"} id={"id"} name={"id"} value={formData.id} onChange={handleChangeId}/>
@@ -84,7 +100,7 @@ export default function NewCharacter(props: Readonly<NewCharacterProps>) {
                     <label htmlFor={"species"}>Species:</label>
                     <input type={"text"} id={"species"} name={"species"} value={formData.species} onChange={handleChangeSpecies}/>
                 </div>
-                <button type={"submit"}>Submit</button>
+                <button type={"submit"} >Submit</button>
             </form>
         </>
     )
