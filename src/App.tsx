@@ -34,7 +34,7 @@ function App() {
                 <Route path={"/"} element={<h1>Willkommen!</h1>}/>
                 <Route path={"/Characters"} element={<CharacterGallery characters={filteredCharacters}/>}/>
                 <Route path={"/AddCharacter"} element={<NewCharacter addCharacter={addCharacter}/>}/>
-                <Route path={"/Characters/:id"} element={<CharacterDetailCard/>}/>
+                <Route path={"/Characters/:id"} element={<CharacterDetailCard characters={characters}/>}/>
             </Routes>
         </>
     )
