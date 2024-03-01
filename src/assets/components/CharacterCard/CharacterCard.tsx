@@ -1,4 +1,4 @@
-import {Character} from "./characters.ts";
+import {Character} from "../../../characters.ts";
 import CharacterCardImage from "./CharacterCardImage.tsx";
 import "./CharacterCard.css"
 import {useNavigate, useParams} from "react-router-dom";

@@ -1,5 +1,5 @@
 import './CharacterCardImage.css'
-import {Character} from "./characters.ts";
+import {Character} from "../../../characters.ts";
 
 type CharacterCardImageProps = {
     character:Character

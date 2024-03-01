@@ -1,6 +1,6 @@
-import {Character} from "./characters.ts";
-import CharacterCard from "./CharacterCard.tsx";
-import SearchComponent from "./searchComponent.tsx";
+import {Character} from "../../characters.ts";
+import CharacterCard from "./CharacterCard/CharacterCard.tsx";
+import SearchComponent from "../../searchComponent.tsx";
 
 type CharacterGalleryProps = {
     characters: Character[]

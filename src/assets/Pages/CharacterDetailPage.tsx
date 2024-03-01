@@ -1,6 +1,6 @@
 import {Character, charactersResponse} from "../../characters.ts";
 import {useParams} from "react-router-dom";
-import CharacterCard from "../../CharacterCard.tsx";
+import CharacterCard from "../components/CharacterCard/CharacterCard.tsx";
 
 
 

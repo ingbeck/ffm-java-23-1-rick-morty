@@ -1,0 +1,9 @@
+.formElement{
+    display: flex;
+    padding-left: 8px;
+    padding-bottom: 8px;
+    gap: 16px;
+    justify-content: flex-end;
+    width: 220px;
+    margin-left: 0px;
+}

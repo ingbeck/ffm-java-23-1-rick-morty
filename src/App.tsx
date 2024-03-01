@@ -1,11 +1,11 @@
 import './App.css'
 import React, {useState} from "react";
 import {Character, charactersResponse} from "./characters.ts";
-import CharacterGallery from "./CharacterGallery.tsx";
+import CharacterGallery from "./assets/components/CharacterGallery.tsx";
 import {Link, Route, Routes} from "react-router-dom";
 import CharacterDetailCard from "./assets/Pages/CharacterDetailPage.tsx";
 import SearchComponent from "./searchComponent.tsx";
-import NewCharacter from "./assets/NewCharacter.tsx";
+import NewCharacter from "./assets/components/NewCharacter.tsx";
 
 function App() {
 
@@ -16,8 +16,7 @@ function App() {
     const filteredCharacters = characters.filter(character => character.name.toLowerCase().includes(searchText.toLowerCase()))
 
     function addCharacter(newChar:Character){
-        setCharacters([...characters,
-            newChar])
+        setCharacters([...characters, newChar])
     }
 
     return (
@@ -27,12 +26,14 @@ function App() {
                 <nav>
                     <Link className="navbarItem" to={"/"}>HOME</Link>
                     <Link className="navbarItem" to={"/Characters"}>CHARACTERS</Link>
+                    <Link className="navbarItem" to={"/AddCharacter"}>ADD CHARACTER</Link>
                     <SearchComponent searchText={searchText} handleSearchText={setSearchText}/>
                 </nav>
             </header>
             <Routes>
-                <Route path={"/"} element={<NewCharacter addCharacter={addCharacter}/>}/>
+                <Route path={"/"} element={<h1>Willkommen!</h1>}/>
                 <Route path={"/Characters"} element={<CharacterGallery characters={filteredCharacters}/>}/>
+                <Route path={"/AddCharacter"} element={<NewCharacter addCharacter={addCharacter}/>}/>
                 <Route path={"/Characters/:id"} element={<CharacterDetailCard/>}/>
             </Routes>
         </>
